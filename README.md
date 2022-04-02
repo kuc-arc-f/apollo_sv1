@@ -13,7 +13,11 @@
 
 Apollo Server + prisma ORM + supabase/postgres
 
-* front: js_front1
+
+***
+### frontend: js_front1
+
+https://github.com/kuc-arc-f/js_front1
 
 ***
 ### Setup
