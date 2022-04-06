@@ -11,5 +11,7 @@ export const GQL_QUERY = `
     bookMark(id: Int): BookMark
     bmCategories(userId: String): [BmCategory]
     bmCategory(id: Int): BmCategory
+    todos(userId: String): [Todo]
+    todo(id: Int): Todo
   }
 `;

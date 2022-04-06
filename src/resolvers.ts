@@ -3,6 +3,7 @@ import LibTask from './lib/LibTask';
 import LibCsrf from './lib/LibCsrf';
 import LibBookMark from './lib/LibBookMark';
 import LibBmCategory from './lib/LibBmCategory';
+import LibTodo from './lib/LibTodo';
 
 /* resolvers */
 const resolvers = {
@@ -34,8 +35,15 @@ const resolvers = {
     },
     async bmCategory(parent, args, context, info){
       return await LibBmCategory.getItem(args.id);
+    },
+    /* todo */ 
+    async todos(parent, args, context, info){
+      return await LibTodo.getItems(args);
     }, 
-  
+    async todo(parent, args, context, info){
+      return await LibTodo.getItem(args.id);
+    },
+
   },
   Mutation: {
     /* tasks */
@@ -79,6 +87,22 @@ const resolvers = {
     },
     deleteBmCategory: async (parent, args, context) => {
       const ret = await LibBmCategory.deleteBmCategory(args)
+      return ret
+    },
+    /* todo */
+    async addTodo(parent, args, context, info){
+      return await LibTodo.addTodo(args);
+    }, 
+    updateTodo: async (parent, args, context) => {
+      const ret = await LibTodo.updateTodo(args)
+      return ret
+    },
+    updateCompleteTodo: async (parent, args, context) => {
+      const ret = await LibTodo.updateCompleteTodo(args)
+      return ret
+    },
+    deleteTodo: async (parent, args, context) => {
+      const ret = await LibTodo.deleteTodo(args)
       return ret
     },
 

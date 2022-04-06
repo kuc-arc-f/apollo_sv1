@@ -11,6 +11,10 @@ type Mutation {
   addBmCategory(name: String!, userId:String): BmCategory
   updateBmCategory(id: Int!, name: String!): BmCategory
   deleteBmCategory(id: Int!): BmCategory
+  addTodo(title: String!, content: String!, complete: Int, userId:String  ): Todo
+  updateTodo(id: Int!, title: String!, content: String!, complete: Int): Todo
+  updateCompleteTodo(id: Int!, complete: Int): Todo
+  deleteTodo(id: Int!): Todo
 
 }
 `;

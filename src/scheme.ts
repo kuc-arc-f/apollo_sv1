@@ -11,26 +11,11 @@ const scheme = {
       name: String
       password: String
     }
-    type Book {
-      id: String
-      title: String
-      content: String
-      user_id: String
-      created_at: String
-    }
     type Task {
       id: Int
       title: String
       content: String
       created_at: String
-    }
-    type Category {
-      id: String
-      name: String!
-    }
-    type Types {
-      id: String
-      name: String!
     }
     type BookMark {
       id: Int
@@ -46,7 +31,15 @@ const scheme = {
       name: String 
       userId: String!
       createdAt: String
-    }    
+    }
+    type Todo {
+      id: Int
+      title: String
+      content:   String
+      complete: Int!
+      userId: String!
+      createdAt: String
+    }        
     ${GQL_QUERY}
     ${GQL_MUTATION}
   `;

@@ -10,17 +10,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  user    User       @relation(fields: [userId], references: [id])
-  userId  Int
-}
-
 model Profile {
   id     Int     @id @default(autoincrement())
   bio    String?
@@ -35,7 +24,6 @@ model User {
   password  String
   email   String   @unique
   name    String?
-  posts   Post[]
   profile Profile?  
 }
 
@@ -74,39 +62,15 @@ model BmCategory {
   name     String    @db.Text
   userId    String?  @db.Text
 }
-model Tag {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name     String
-}
 
-model Category {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name     String
-  note      Note?    @relation(fields: [noteId], references: [id])
-  noteId    Int?  
-}
-
-model Note {
+model Todo {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   content   String?  @db.Text
-  userId    Int?
-  noteTag   NoteTag[]
-  category  Category?
+  complete  Int?
+  userId    String?  @db.Text
 }
 
-model NoteTag {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  note      Note?    @relation(fields: [noteId], references: [id])
-  noteId    Int?
-  name      String
-}
 
