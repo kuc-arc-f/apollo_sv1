@@ -13,5 +13,7 @@ export const GQL_QUERY = `
     bmCategory(id: Int): BmCategory
     todos(userId: String): [Todo]
     todo(id: Int): Todo
+    measures(userId: String): [Measure]
+    measure(id: Int): Measure
   }
 `;

@@ -4,6 +4,7 @@ import LibCsrf from './lib/LibCsrf';
 import LibBookMark from './lib/LibBookMark';
 import LibBmCategory from './lib/LibBmCategory';
 import LibTodo from './lib/LibTodo';
+import LibMeasure from './lib/LibMeasure';
 
 /* resolvers */
 const resolvers = {
@@ -42,6 +43,13 @@ const resolvers = {
     }, 
     async todo(parent, args, context, info){
       return await LibTodo.getItem(args.id);
+    },
+    /* measures */
+    async measures(parent, args, context, info){
+      return await LibMeasure.getItems(args);
+    }, 
+    async measure(parent, args, context, info){
+      return await LibMeasure.getItem(args.id);
     },
 
   },
@@ -105,6 +113,18 @@ const resolvers = {
       const ret = await LibTodo.deleteTodo(args)
       return ret
     },
+    /* measures */
+    async addMeasure(parent, args, context, info){
+      return await LibMeasure.addMeasure(args);
+    }, 
+    updateMeasure: async (parent, args, context) => {
+      const ret = await LibMeasure.updateMeasure(args)
+      return ret
+    },
+    deleteMeasure: async (parent, args, context) => {
+      const ret = await LibMeasure.deleteMeasure(args)
+      return ret
+    },    
 
   }
 };

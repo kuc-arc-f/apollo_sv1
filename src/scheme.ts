@@ -39,7 +39,14 @@ const scheme = {
       complete: Int!
       userId: String!
       createdAt: String
-    }        
+    }
+    type Measure {
+      id: Int
+      mdate: String
+      mvalue: Int!
+      userId: String!
+      createdAt: String
+    }  
     ${GQL_QUERY}
     ${GQL_MUTATION}
   `;

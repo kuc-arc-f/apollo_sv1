@@ -15,6 +15,9 @@ type Mutation {
   updateTodo(id: Int!, title: String!, content: String!, complete: Int): Todo
   updateCompleteTodo(id: Int!, complete: Int): Todo
   deleteTodo(id: Int!): Todo
+  addMeasure(mvalue: Int!, userId:String  ): Measure
+  updateMeasure(id: Int!, mvalue: Int!): Measure
+  deleteMeasure(id: Int!): Measure
 
 }
 `;

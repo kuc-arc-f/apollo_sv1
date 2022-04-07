@@ -73,4 +73,11 @@ model Todo {
   userId    String?  @db.Text
 }
 
-
+model Measure {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  mdate     DateTime @default(now())
+  mvalue    Int?
+  userId    String?  @db.Text
+}
