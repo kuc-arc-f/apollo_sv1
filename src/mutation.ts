@@ -18,6 +18,9 @@ type Mutation {
   addMeasure(mvalue: Int!, userId:String  ): Measure
   updateMeasure(id: Int!, mvalue: Int!): Measure
   deleteMeasure(id: Int!): Measure
-
+  addMemo(title: String!, content: String!, userId:String  ): Memo
+  updateMemo(id: Int!, title: String!, content: String!): Memo
+  deleteMemo(id: Int!): Memo
+  
 }
 `;

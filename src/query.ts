@@ -15,5 +15,9 @@ export const GQL_QUERY = `
     todo(id: Int): Todo
     measures(userId: String): [Measure]
     measure(id: Int): Measure
+    memos(userId: String): [Memo]
+    memo(id: Int): Memo
+    searchMemos(userId: String, seachKey:String): [Memo]
+
   }
 `;

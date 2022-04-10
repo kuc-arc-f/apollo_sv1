@@ -46,7 +46,14 @@ const scheme = {
       mvalue: Int!
       userId: String!
       createdAt: String
-    }  
+    }
+    type Memo {
+      id: Int
+      title: String
+      content:   String
+      userId: String!
+      createdAt: String
+    }      
     ${GQL_QUERY}
     ${GQL_MUTATION}
   `;

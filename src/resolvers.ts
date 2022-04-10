@@ -5,6 +5,7 @@ import LibBookMark from './lib/LibBookMark';
 import LibBmCategory from './lib/LibBmCategory';
 import LibTodo from './lib/LibTodo';
 import LibMeasure from './lib/LibMeasure';
+import LibMemo from './lib/LibMemo';
 
 /* resolvers */
 const resolvers = {
@@ -51,6 +52,16 @@ const resolvers = {
     async measure(parent, args, context, info){
       return await LibMeasure.getItem(args.id);
     },
+    /* memo */
+    async memos(parent, args, context, info){
+      return await LibMemo.getItems(args);
+    }, 
+    async memo(parent, args, context, info){
+      return await LibMemo.getItem(args.id);
+    },
+    async searchMemos(parent, args, context, info){
+      return await LibMemo.searchMemos(args);
+    }, 
 
   },
   Mutation: {
@@ -124,7 +135,19 @@ const resolvers = {
     deleteMeasure: async (parent, args, context) => {
       const ret = await LibMeasure.deleteMeasure(args)
       return ret
-    },    
+    },
+    /* memo */
+    async addMemo(parent, args, context, info){
+      return await LibMemo.addMemo(args);
+    }, 
+    updateMemo: async (parent, args, context) => {
+      const ret = await LibMemo.updateMemo(args)
+      return ret
+    },
+    deleteMemo: async (parent, args, context) => {
+      const ret = await LibMemo.deleteMemo(args)
+      return ret
+    },
 
   }
 };
